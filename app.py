@@ -94,7 +94,7 @@ def calc_times():
   if(miles<200):
     opening_time = miles/34
     closing_time = miles/15
-  elif(miles >= 200 && miles =< 400)
+  elif(miles >= 200 and miles =< 400)
     opening_time = 200/34 + ((miles-200)/32)
     closing_time = miles/15
   elif(miles >= 400 && miles =< 600)

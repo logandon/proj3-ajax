@@ -53,18 +53,16 @@
 <form role="form">
 <div class="row">
   <h2> Indicate Brevet Distance and starting time and date </h2>
-  <div class="col-md-2">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-    Brevet Distance in Miles<span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-    <li><a href="#">200</a></li>
-    <li><a href="#">300</a></li>
-    <li><a href="#">400</a></li>
-    <li><a href="#">600</a></li>
-    <li><a href="#">1000</a></li>
-  </ul>
-  </div>
+  
+  <div class = "col-md-3">
+        <select class="control-label col-md-5" id="brevet_miles">
+          <option>200</option>
+          <option>300</option>
+          <option>400</option>
+          <option>600</option>
+          <option>1000</option>
+      </select>
+    </div>
   <div class="col-md-2">
     <input type="text" class="form-control"
       name="location" value="location (optional)" />
@@ -74,7 +72,7 @@
       name="startdate" value="Starting Date (YYYY/MM/DD):" />
   </div>
   <div class="col-md-4">
-    <span class="times form-control">(Starting Time (24 Hour Format, HH:MM):)</span>
+    <span class="times form-control">(Starting Time (24 Hour Format, HH:MM)</span>
   </div>
 </div>
 <hr>

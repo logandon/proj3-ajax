@@ -84,11 +84,33 @@ def calc_times():
     miles = miles*m2km
 
   if (miles > brev_dist*1.1):
-    max_dist_error = {'opener': "Error: entered distance greater than Brevet", 'opener': "Error: entered distance greater than Brevet"}
+    max_dist_error = {'opening_time': "Error: distance out of range", 'closing_time': "Error: distance out of range"}
     return jsonify(result = max_dist_error)
   elif(miles == 0):
-    zero = {'opener': format_arrow_date(start), 'closer': format_arrow_date(start.replace(minutes=+60))}
+    zero_error = {'opening_time': format_arrow_date(start_time), 'closing_time': format_arrow_date(start_time.replace(minutes=+60))}
+    return jsonify(result = zero_error)
 
+
+  if(miles<200):
+    opening_time = miles/34
+    closing_time = miles/15
+  elif(miles >= 200 && miles =< 400)
+    opening_time = 200/34 + ((miles-200)/32)
+    closing_time = miles/15
+  elif(miles >= 400 && miles =< 600)
+    opening_time = 200/34 + 200/32 + ((miles-400)/30)
+    closing_time = miles/15
+  elif(miles >= 600 && miles =< 1000)
+    opening_time = 200/34 + 200/32 + 200/30 ((miles-600)/28)
+    closing_time = 600/15 + ((miles-600)/11.428
+  elif(miles >= 1000 && miles =< 1300)
+    opening_time = 200/34 + 200/32 + 200/30 + 400/28 + ((miles-1000)/26)
+    closing_time = 600/15 + 400/11.482 + ((miles-1000)/34
+  else:
+    max_miles_error = {'opening_time': "Error: out of range", 'closing_time': "Error: out of range"}
+    return jsonify(result=max_miles_error)
+  return_result = {'opening_time': format_arrow_date(start.replace(hours=hours+opening_time)), 'closing_time': format_arrow_date(start.replace(hours = hours+closing_time))}
+  return jsonify(result=return_result)
 #################
 #
 # Functions used within the templates

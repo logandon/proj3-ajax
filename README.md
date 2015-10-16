@@ -1,6 +1,12 @@
 # proj3-ajax
 Reimplement the RUSA ACP controle time calculator with flask and ajax
 
+CIS 399, Fall 2015
+Prof. Michal Young
+Author: Logan Donielson
+Source Code: Michal Young
+Worked With: Douglas Uyeda
+
 ## ACP controle times
 
 That's "controle" with an 'e', because it's French, although "control" is also accepted.  Controls are points where 

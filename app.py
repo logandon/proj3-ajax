@@ -100,10 +100,10 @@ def calc_times():
   elif(miles > 399 and miles < 599):
     opening_time = 200/34 + 200/32 + ((miles-400)/30)
     closing_time = miles/15
-  elif(miles => 599 and miles < 999):
+  elif(miles > 599 and miles < 999):
     opening_time = 200/34 + 200/32 + 200/30 ((miles-600)/28)
     closing_time = 600/15 + ((miles-600)/11.428
-  elif(miles => 999 and miles <= 1299):
+  elif(miles > 999 and miles < 1299):
     opening_time = 200/34 + 200/32 + 200/30 + 400/28 + ((miles-1000)/26)
     closing_time = 600/15 + 400/11.482 + ((miles-1000)/34
   else:

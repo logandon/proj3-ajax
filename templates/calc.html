@@ -54,7 +54,7 @@
 <div class="row">
   <p> Indicate Brevet Distance and starting date/time</p>
   <p>Brevet Distance (KM)</p><div class = "col-md-2">
-        <select class="control-label col-md-5" id="brevet_miles">
+        <select class="control-label col-md-5" name="brevet_miles">
           <option>200</option>
           <option>300</option>
           <option>400</option>
@@ -62,11 +62,6 @@
           <option>1000</option>
       </select>
     </div>
-
-  <div class="col-md-2">
-    <input type="text" class="form-control"
-      name="location" placeholder="location (optional)" />
-  </div>
 
   <div class="col-md-3">
     <input type="text" class="form-control"
@@ -80,124 +75,41 @@
 
 </div>
 <hr>
-
-<td align=left>Input Units:</td>
-  <td align=left>
-    <input type=radio name="input" value="mi" checked>miles</td>
-  <td align=left>
-    <input type=radio name="input" value="km">km</td>
-  <td align=left></td>
+  <div class="col-md-3">
+    <td align=left>Input Units:</td>
+        <select class="control-label col-md-4" name="distunits">
+             <option>Miles</option>
+             <option>Kilometers</option>
+          </select>
+  </div>
 <hr>
 
-<td align=left>Output units:</td>
+<!-- <td align=left>Output units:</td>
   <td align=left>
     <input type=radio name="output" value="mi" checked>miles</td>
   <td align=left>
     <input type=radio name="output" value="km">km</td>
   <td align=left>
     <input type=radio name="output" value="both">both</td>
-<hr>
+<hr> -->
 
-<p>Indicate distance at each checkpoint</p>
 <div class="row">
   <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 1</td>
+    <td align=left>Checkpoint No. 1</td>
     <input type="text" class="form-control"
       name="distance" value="0 (start)" />
+
     <input type="text" class="form-control"
       name="location" placeholder="location" />
+    
+    <input type="text" class="form-control"
+      name="opening time" placeholder="opening time" />
+    
+    <input type="text" class="form-control"
+      name="closing time" placeholder="closing time" />
   </div>
   </div>
 
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 2</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 3</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 4</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 5</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 6</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 7</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 8</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 9</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
-
-<div class="row">
-  <div class="col-md-2">
-    <td ALIGN=left>Checkpoint No. 10</td>
-    <input type="text" class="form-control"
-      name="distance" placeholder="distance" />
-    <input type="text" class="form-control"
-      name="location" placeholder="location" />
-  </div>
-  </div>
 
 </form>
 
@@ -213,8 +125,12 @@
           // ... execute this function
           function(){
               var e_miles = $(this).val();
-
-              var target = $(this).parents(".row").find(".times");
+              var brevet_miles_var = document.getElementsByName("brevet_miles").value;
+              var startdate_var   = document.getElementsByName("startdate").value;
+              var starttime_var   = document.getElementsByName("starttime").value;
+              var distunits_var  = document.getElementsByName("distunits").value
+              var opening_time_var  = $(this).parents(".row").find(".opening_time");
+              var closing_time_var  = $(this).parents(".row").find(".closing_time"); //You don't have to go home but you can't stay here.
 
               // DEBUG: How do I replace the 'times' field?
               // alert("Content of the field I want to change: " +
@@ -223,12 +139,13 @@
               // AJAX request
               $.getJSON($SCRIPT_ROOT + '/_calc_times',
                   // The object to pass to the server
-                  { miles: e_miles },
+                  { miles: e_miles, brevet_miles_var:brevet_miles, startdate_var: startdate, starttime_var: starttime, distunits_var:distunits},
                   // The function to call with the response
                   function(data) {
                      var times = data.result;
                      // alert("Got a response: " +  times);
-                     target.text(times);
+                     opening_time_var.text(times.opening_time_var);
+                     closing_time_var.text(times.closing_time_var);
                   }); // End of the call to getJSON
           });  // End of the function to be called when field changes
               

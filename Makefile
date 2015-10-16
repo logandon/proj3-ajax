@@ -1,5 +1,5 @@
 #
-# Simple Makefile for first Flask project
+# Simple Makefile for proj3-ajax
 #
 
 ##

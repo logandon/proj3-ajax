@@ -108,8 +108,8 @@ def calc_times():
   else:
     max_miles_error = {'opening_time': "Error: out of range", 'closing_time': "Error: out of range"}
     return jsonify(result=max_miles_error)
-    return_result = {'opening_time': format_arrow_date(start_time.replace(hours=hours+opening_time)), 'closing_time': format_arrow_date(start_time.replace(hours = hours+closing_time))}
-    return jsonify(result=return_result)
+  return_result = {'opening_time': format_arrow_date(start_time.replace(hours=hours+opening_time)), 'closing_time': format_arrow_date(start_time.replace(hours = hours+closing_time))}
+  return jsonify(result=return_result)
 #################
 #
 # Functions used within the templates

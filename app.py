@@ -87,7 +87,7 @@ def calc_times():
     max_dist_error = {'opening_time': "Error: distance out of range", 'closing_time': "Error: distance out of range"}
     return jsonify(result = max_dist_error)
   elif(miles == 0):
-    zero_error = {'opening_time': format_arrow_date(start_time), 'closing_time': format_arrow_date(start_time.replace(minutes=+60))}
+    zero_error = {'opening_time': format_arrow_date(opening_time), 'closing_time': format_arrow_date(closing_time.replace(minutes=+60))}
     return jsonify(result = zero_error)
 
 

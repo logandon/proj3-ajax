@@ -78,7 +78,6 @@ def calc_times():
   input_type = request.args.get('input_type', 0, type=str)
   # output = request.args.get('output', 0, type=str)
   start_time = arrow.get(date + ' ' + time, 'MM/DD/YYYY HH:mm')
-  return jsonify(result=miles * 2)
 
   if(input_type == "miles"):
     miles = miles*m2km
